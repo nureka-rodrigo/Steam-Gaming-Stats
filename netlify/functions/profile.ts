@@ -17,7 +17,7 @@ import { buildNoCacheHeaders } from '../../src/utils/response';
 import { withErrorHandling } from '../../src/utils/handler';
 import { formatNumber, formatPlaytime } from '../../src/utils/i18n';
 import { CARD_PADDING, CARD_WIDTH } from '../../src/svg/layout';
-import { FONT_FAMILY, FONT_SIZE_BODY, FONT_SIZE_SMALL } from '../../src/svg/typography';
+import { FONT_SIZE_BODY, FONT_SIZE_SMALL } from '../../src/svg/typography';
 import { escapeXml } from '../../src/utils/escape';
 
 const CARD_HEIGHT = 145;
@@ -135,10 +135,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
       .filter(Boolean)
       .join('\n');
 
-    const header = `<text x="${CARD_WIDTH - CARD_PADDING}" y="20" font-family="${FONT_FAMILY}" font-size="${FONT_SIZE_SMALL}" fill="#${theme.statLabel}" text-anchor="end">Steam Profile</text>`;
-
     return buildSvgWrapper(
-      header + avatarSection + infoSection,
+      avatarSection + infoSection,
       CARD_HEIGHT,
       {
         theme,
