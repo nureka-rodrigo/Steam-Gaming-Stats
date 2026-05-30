@@ -91,7 +91,7 @@ Total hours with fun milestone labels.
 Every card accepts these parameters.
 
 | Parameter       | Default      | Description                                    |
-|-----------------|--------------|------------------------------------------------|
+| --------------- | ------------ | ---------------------------------------------- |
 | `steamid`       | **required** | SteamID64 (`76561198…`) or vanity URL username |
 | `theme`         | `default`    | Color theme name (see [Themes](#themes))       |
 | `hide_border`   | `false`      | Remove the card border                         |
@@ -110,7 +110,7 @@ Boolean parameters accept `true`/`false`, `1`/`0`, `yes`/`no` (case-insensitive)
 ### Card-Specific
 
 | Card            | Parameter                | Default      | Description                                |
-|-----------------|--------------------------|--------------|--------------------------------------------|
+| --------------- | ------------------------ | ------------ | ------------------------------------------ |
 | recently-played | `count`                  | `5`          | Number of games to show (1–5)              |
 | recently-played | `show_playtime`          | `true`       | Show playtime label next to each bar       |
 | recently-played | `show_icons`             | `true`       | Show game icons                            |
@@ -134,7 +134,7 @@ Boolean parameters accept `true`/`false`, `1`/`0`, `yes`/`no` (case-insensitive)
 Append `&theme=NAME` to any card URL.
 
 | Name           | Preview                             |
-|----------------|-------------------------------------|
+| -------------- | ----------------------------------- |
 | `default`      | White background, blue accents      |
 | `dark`         | GitHub dark mode (#0d1117)          |
 | `radical`      | Deep pink on dark purple            |
