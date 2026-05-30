@@ -341,7 +341,7 @@
                     fill="#30363d"
                   />
                 </svg>
-                <p class="text-[13px] text-fg-muted leading-relaxed">
+                <p id="state-empty-msg" class="text-[13px] text-fg-muted leading-relaxed">
                   Enter your Steam ID<br />to see a live preview
                 </p>
               </div>
@@ -1061,6 +1061,12 @@
         const result = buildUrl();
         syncOutputs(result);
         if (!result) {
+          const steamid = document.getElementById('steamid').value.trim();
+          const type = document.getElementById('card-type').value;
+          const needsAppIds = type === 'achievements' && steamid;
+          document.getElementById('state-empty-msg').innerHTML = needsAppIds
+            ? 'Enter App IDs<br />to see a live preview'
+            : 'Enter your Steam ID<br />to see a live preview';
           showState('state-empty');
           return;
         }
