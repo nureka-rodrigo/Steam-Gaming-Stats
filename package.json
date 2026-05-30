@@ -19,7 +19,7 @@
     "serverless"
   ],
   "author": "Nureka Rodrigo",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@11.5.0",
   "devDependencies": {
     "@netlify/functions": "^5.2.2",
