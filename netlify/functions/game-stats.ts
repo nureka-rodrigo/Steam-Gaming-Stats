@@ -18,7 +18,7 @@ import { withErrorHandling } from '../../src/utils/handler';
 import { formatNumber } from '../../src/utils/i18n';
 import { renderIcon } from '../../src/svg/icons';
 import { CARD_PADDING, CARD_WIDTH, HEADER_HEIGHT, computeBarWidth } from '../../src/svg/layout';
-import { truncateText, FONT_SIZE_BODY, FONT_SIZE_SMALL } from '../../src/svg/typography';
+import { truncateText, FONT_SIZE_BODY } from '../../src/svg/typography';
 
 const BAR_MAX_WIDTH = CARD_WIDTH - CARD_PADDING * 2;
 const ROW_H = 46;

@@ -16,7 +16,7 @@ import { buildSvgWrapper, buildErrorSvg, buildText } from '../../src/svg/rendere
 import { buildNoCacheHeaders } from '../../src/utils/response';
 import { withErrorHandling } from '../../src/utils/handler';
 import { formatNumber, formatPlaytime } from '../../src/utils/i18n';
-import { CARD_PADDING, CARD_WIDTH } from '../../src/svg/layout';
+import { CARD_PADDING } from '../../src/svg/layout';
 import { FONT_SIZE_BODY, FONT_SIZE_SMALL } from '../../src/svg/typography';
 import { escapeXml } from '../../src/utils/escape';
 
