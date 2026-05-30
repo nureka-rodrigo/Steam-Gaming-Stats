@@ -8,10 +8,16 @@
     "dev": "netlify dev",
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/**/*.test.js",
-    "format": "prettier --write \"src/**/*.{ts,js,json}\" \"netlify/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.{ts,js,json}\" \"netlify/**/*.ts\""
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
-  "keywords": ["steam", "svg", "github-readme", "netlify", "serverless"],
+  "keywords": [
+    "steam",
+    "svg",
+    "github-readme",
+    "netlify",
+    "serverless"
+  ],
   "author": "Nureka Rodrigo",
   "license": "ISC",
   "packageManager": "pnpm@11.5.0",

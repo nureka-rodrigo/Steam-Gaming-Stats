@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -18,7 +18,14 @@
               fg: { DEFAULT: '#c9d1d9', muted: '#8b949e', accent: '#58a6ff', link: '#66c0f4' },
             },
             fontFamily: {
-              sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Helvetica', 'Arial', 'sans-serif'],
+              sans: [
+                '-apple-system',
+                'BlinkMacSystemFont',
+                '"Segoe UI"',
+                'Helvetica',
+                'Arial',
+                'sans-serif',
+              ],
             },
           },
         },
@@ -27,7 +34,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-canvas text-fg font-sans text-[15px] leading-relaxed">
-
     <!-- Header -->
     <header class="sticky top-0 z-50 border-b border-canvas-inset bg-canvas/90 backdrop-blur-md">
       <div class="mx-auto max-w-[960px] px-6 flex items-center justify-between py-3.5">
@@ -41,15 +47,24 @@
           <span>Steam Gaming Stats</span>
         </div>
         <nav class="flex gap-6">
-          <a href="#builder" class="text-fg-muted text-sm no-underline hover:text-fg transition-colors">Builder</a>
-          <a href="#themes"  class="text-fg-muted text-sm no-underline hover:text-fg transition-colors">Themes</a>
-          <a href="#faq"     class="text-fg-muted text-sm no-underline hover:text-fg transition-colors">FAQ</a>
+          <a
+            href="#builder"
+            class="text-fg-muted text-sm no-underline hover:text-fg transition-colors"
+            >Builder</a
+          >
+          <a
+            href="#themes"
+            class="text-fg-muted text-sm no-underline hover:text-fg transition-colors"
+            >Themes</a
+          >
+          <a href="#faq" class="text-fg-muted text-sm no-underline hover:text-fg transition-colors"
+            >FAQ</a
+          >
         </nav>
       </div>
     </header>
 
     <main>
-
       <!-- Hero -->
       <section id="hero" class="py-20 pb-16 text-center">
         <div class="mx-auto max-w-[960px] px-6">
@@ -61,12 +76,18 @@
             your Steam playtime, achievements, and more. No GitHub Actions required.
           </p>
           <div class="flex gap-3 justify-center flex-wrap">
-            <a href="#builder"
-              class="inline-block px-[22px] py-2.5 rounded-lg text-sm font-semibold bg-fg-accent text-canvas no-underline hover:opacity-80 transition-opacity">
+            <a
+              href="#builder"
+              class="inline-block px-[22px] py-2.5 rounded-lg text-sm font-semibold bg-fg-accent text-canvas no-underline hover:opacity-80 transition-opacity"
+            >
               Build Your Card
             </a>
-            <a href="https://github.com/Nureka-Rodrigo/Steam-Gaming-Stats" target="_blank" rel="noopener"
-              class="inline-block px-[22px] py-2.5 rounded-lg text-sm font-semibold bg-canvas-overlay text-fg border border-canvas-inset no-underline hover:opacity-80 transition-opacity">
+            <a
+              href="https://github.com/Nureka-Rodrigo/Steam-Gaming-Stats"
+              target="_blank"
+              rel="noopener"
+              class="inline-block px-[22px] py-2.5 rounded-lg text-sm font-semibold bg-canvas-overlay text-fg border border-canvas-inset no-underline hover:opacity-80 transition-opacity"
+            >
               View on GitHub
             </a>
           </div>
@@ -76,7 +97,6 @@
       <!-- Builder -->
       <section id="builder" class="py-16 bg-canvas-overlay">
         <div class="mx-auto max-w-[960px] px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
-
           <!-- Left: Form -->
           <div>
             <h2 class="text-[26px] font-bold text-white mb-2">Build Your Embed URL</h2>
@@ -84,19 +104,29 @@
 
             <!-- Steam ID -->
             <div class="flex flex-col gap-1.5 mb-4">
-              <label for="steamid" class="text-[13px] text-fg-muted font-medium">Steam ID or Vanity URL</label>
-              <input type="text" id="steamid"
+              <label for="steamid" class="text-[13px] text-fg-muted font-medium"
+                >Steam ID or Vanity URL</label
+              >
+              <input
+                type="text"
+                id="steamid"
                 placeholder="e.g. 76561198012345678 or gaben"
-                autocomplete="off" spellcheck="false"
-                class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent focus:border-fg-accent transition-shadow" />
+                autocomplete="off"
+                spellcheck="false"
+                class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent focus:border-fg-accent transition-shadow"
+              />
             </div>
 
             <!-- Card Type + Theme -->
             <div class="flex gap-4 mb-4">
               <div class="flex-1 flex flex-col gap-1.5">
-                <label for="card-type" class="text-[13px] text-fg-muted font-medium">Card Type</label>
-                <select id="card-type"
-                  class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent">
+                <label for="card-type" class="text-[13px] text-fg-muted font-medium"
+                  >Card Type</label
+                >
+                <select
+                  id="card-type"
+                  class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent"
+                >
                   <option value="recently-played">Recently Played</option>
                   <option value="top-games">Top Games</option>
                   <option value="library">Library Overview</option>
@@ -108,8 +138,10 @@
               </div>
               <div class="flex-1 flex flex-col gap-1.5">
                 <label for="theme" class="text-[13px] text-fg-muted font-medium">Theme</label>
-                <select id="theme"
-                  class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent">
+                <select
+                  id="theme"
+                  class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent"
+                >
                   <option value="default">Default (Light)</option>
                   <option value="dark">Dark</option>
                   <option value="radical">Radical</option>
@@ -128,36 +160,68 @@
 
             <!-- Checkboxes -->
             <div class="flex gap-5 flex-wrap mb-4">
-              <label class="flex items-center gap-2 text-[13px] text-fg-muted cursor-pointer select-none">
-                <input type="checkbox" id="hide-border" class="accent-fg-accent w-3.5 h-3.5 cursor-pointer" />
+              <label
+                class="flex items-center gap-2 text-[13px] text-fg-muted cursor-pointer select-none"
+              >
+                <input
+                  type="checkbox"
+                  id="hide-border"
+                  class="accent-fg-accent w-3.5 h-3.5 cursor-pointer"
+                />
                 Hide border
               </label>
-              <label class="flex items-center gap-2 text-[13px] text-fg-muted cursor-pointer select-none">
-                <input type="checkbox" id="hide-bg" class="accent-fg-accent w-3.5 h-3.5 cursor-pointer" />
+              <label
+                class="flex items-center gap-2 text-[13px] text-fg-muted cursor-pointer select-none"
+              >
+                <input
+                  type="checkbox"
+                  id="hide-bg"
+                  class="accent-fg-accent w-3.5 h-3.5 cursor-pointer"
+                />
                 Transparent background
               </label>
             </div>
 
             <!-- Output -->
-            <div id="builder-output" style="display:none" class="mt-5 pt-5 border-t border-canvas-inset">
+            <div
+              id="builder-output"
+              style="display: none"
+              class="mt-5 pt-5 border-t border-canvas-inset"
+            >
               <div class="mb-3">
-                <label for="output-url" class="block text-[13px] text-fg-muted font-medium mb-1.5">Embed URL</label>
+                <label for="output-url" class="block text-[13px] text-fg-muted font-medium mb-1.5"
+                  >Embed URL</label
+                >
                 <div class="flex gap-2">
-                  <input type="text" id="output-url" readonly
-                    class="bg-canvas border border-canvas-inset rounded-md text-fg-muted text-xs px-3 py-2 w-full font-mono min-w-0 outline-none" />
-                  <button id="btn-copy-url"
-                    class="bg-canvas text-fg-muted border border-canvas-inset px-3.5 py-2 rounded-md text-[13px] flex-shrink-0 whitespace-nowrap cursor-pointer hover:text-fg hover:border-fg-accent transition-colors">
+                  <input
+                    type="text"
+                    id="output-url"
+                    readonly
+                    class="bg-canvas border border-canvas-inset rounded-md text-fg-muted text-xs px-3 py-2 w-full font-mono min-w-0 outline-none"
+                  />
+                  <button
+                    id="btn-copy-url"
+                    class="bg-canvas text-fg-muted border border-canvas-inset px-3.5 py-2 rounded-md text-[13px] flex-shrink-0 whitespace-nowrap cursor-pointer hover:text-fg hover:border-fg-accent transition-colors"
+                  >
                     Copy
                   </button>
                 </div>
               </div>
               <div>
-                <label for="output-md" class="block text-[13px] text-fg-muted font-medium mb-1.5">Markdown Snippet</label>
+                <label for="output-md" class="block text-[13px] text-fg-muted font-medium mb-1.5"
+                  >Markdown Snippet</label
+                >
                 <div class="flex gap-2">
-                  <input type="text" id="output-md" readonly
-                    class="bg-canvas border border-canvas-inset rounded-md text-fg-muted text-xs px-3 py-2 w-full font-mono min-w-0 outline-none" />
-                  <button id="btn-copy-md"
-                    class="bg-canvas text-fg-muted border border-canvas-inset px-3.5 py-2 rounded-md text-[13px] flex-shrink-0 whitespace-nowrap cursor-pointer hover:text-fg hover:border-fg-accent transition-colors">
+                  <input
+                    type="text"
+                    id="output-md"
+                    readonly
+                    class="bg-canvas border border-canvas-inset rounded-md text-fg-muted text-xs px-3 py-2 w-full font-mono min-w-0 outline-none"
+                  />
+                  <button
+                    id="btn-copy-md"
+                    class="bg-canvas text-fg-muted border border-canvas-inset px-3.5 py-2 rounded-md text-[13px] flex-shrink-0 whitespace-nowrap cursor-pointer hover:text-fg hover:border-fg-accent transition-colors"
+                  >
                     Copy
                   </button>
                 </div>
@@ -168,41 +232,64 @@
           <!-- Right: Live Preview -->
           <aside class="sticky top-[81px]" aria-label="Live card preview">
             <div class="flex items-center gap-2.5 mb-2.5">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-fg-muted bg-canvas border border-canvas-inset px-2 py-0.5 rounded">
+              <span
+                class="text-[11px] font-bold uppercase tracking-widest text-fg-muted bg-canvas border border-canvas-inset px-2 py-0.5 rounded"
+              >
                 Live Preview
               </span>
-              <span id="preview-card-name" class="text-[13px] font-semibold text-fg">Recently Played</span>
+              <span id="preview-card-name" class="text-[13px] font-semibold text-fg"
+                >Recently Played</span
+              >
             </div>
-            <div id="preview-box"
-              class="border border-canvas-inset rounded-lg bg-canvas min-h-[200px] flex items-center justify-center overflow-hidden p-4">
-
+            <div
+              id="preview-box"
+              class="border border-canvas-inset rounded-lg bg-canvas min-h-[200px] flex items-center justify-center overflow-hidden p-4"
+            >
               <!-- Empty -->
-              <div id="state-empty" class="flex flex-col items-center justify-center gap-3 text-center p-4 w-full">
+              <div
+                id="state-empty"
+                class="flex flex-col items-center justify-center gap-3 text-center p-4 w-full"
+              >
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M12 2a10 10 0 0 0-9.95 9h.01c.27 3.06 2.17 5.67 4.87 6.97l1.79-4.4a2.99 2.99 0 0 1-.72-3.57 3 3 0 0 1 3-1.5c.12.01.25.03.37.06L15.2 4.3A9.96 9.96 0 0 0 12 2zm7.94 8.01A10 10 0 0 1 12 22a10.03 10.03 0 0 1-4.74-1.19l2.38-5.83a3 3 0 1 0 4.24-3.97l5.06-1z"
                     fill="#30363d"
                   />
                 </svg>
-                <p class="text-[13px] text-fg-muted leading-relaxed">Enter your Steam ID<br />to see a live preview</p>
+                <p class="text-[13px] text-fg-muted leading-relaxed">
+                  Enter your Steam ID<br />to see a live preview
+                </p>
               </div>
 
               <!-- Loading -->
-              <div id="state-loading" style="display:none"
-                class="flex flex-col items-center justify-center gap-3 text-center p-4 w-full">
-                <div class="w-8 h-8 rounded-full border-[3px] border-canvas-inset border-t-fg-accent animate-spin"
-                  aria-label="Loading"></div>
+              <div
+                id="state-loading"
+                style="display: none"
+                class="flex flex-col items-center justify-center gap-3 text-center p-4 w-full"
+              >
+                <div
+                  class="w-8 h-8 rounded-full border-[3px] border-canvas-inset border-t-fg-accent animate-spin"
+                  aria-label="Loading"
+                ></div>
                 <p class="text-[13px] text-fg-muted">Fetching your card...</p>
               </div>
 
               <!-- Card -->
-              <div id="state-card" style="display:none" class="flex w-full p-0">
-                <img id="preview-img" src="" alt="Steam stats card preview" class="block max-w-full h-auto rounded" />
+              <div id="state-card" style="display: none" class="flex w-full p-0">
+                <img
+                  id="preview-img"
+                  src=""
+                  alt="Steam stats card preview"
+                  class="block max-w-full h-auto rounded"
+                />
               </div>
 
               <!-- Error -->
-              <div id="state-error" style="display:none"
-                class="flex flex-col items-center justify-center gap-3 text-center p-4 w-full">
+              <div
+                id="state-error"
+                style="display: none"
+                class="flex flex-col items-center justify-center gap-3 text-center p-4 w-full"
+              >
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
@@ -213,10 +300,8 @@
                   Could not load preview.<br />Check that your Steam ID is correct.
                 </p>
               </div>
-
             </div>
           </aside>
-
         </div>
       </section>
 
@@ -226,22 +311,72 @@
           <h2 class="text-[26px] font-bold text-white mb-2">Available Themes</h2>
           <p class="text-fg-muted mb-8">
             Append
-            <code class="bg-canvas-overlay border border-canvas-inset rounded px-1 py-0.5 text-xs">?theme=NAME</code>
+            <code class="bg-canvas-overlay border border-canvas-inset rounded px-1 py-0.5 text-xs"
+              >?theme=NAME</code
+            >
             to any card URL.
           </p>
           <div class="flex flex-wrap gap-2.5">
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border" style="background:#ffffff;color:#2f80ed;border-color:#e4e2e2">default</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#0d1117;color:#58a6ff">dark</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#141321;color:#fe428e">radical</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#0a0f0b;color:#abd200">merko</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#282828;color:#fabd2f">gruvbox</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#1a1b27;color:#70a5fd">tokyonight</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#282c34;color:#61afef">onedark</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#193549;color:#e3d18a">cobalt</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#2b213a;color:#ef8539">synthwave</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border" style="background:#000000;color:#ffffff;border-color:#333">highcontrast</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#282a36;color:#ff79c6">dracula</span>
-            <span class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent" style="background:#1b2838;color:#66c0f4">steam</span>
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border"
+              style="background: #ffffff; color: #2f80ed; border-color: #e4e2e2"
+              >default</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #0d1117; color: #58a6ff"
+              >dark</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #141321; color: #fe428e"
+              >radical</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #0a0f0b; color: #abd200"
+              >merko</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #282828; color: #fabd2f"
+              >gruvbox</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #1a1b27; color: #70a5fd"
+              >tokyonight</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #282c34; color: #61afef"
+              >onedark</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #193549; color: #e3d18a"
+              >cobalt</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #2b213a; color: #ef8539"
+              >synthwave</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border"
+              style="background: #000000; color: #ffffff; border-color: #333"
+              >highcontrast</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #282a36; color: #ff79c6"
+              >dracula</span
+            >
+            <span
+              class="px-4 py-1.5 rounded-full text-[13px] font-semibold border border-transparent"
+              style="background: #1b2838; color: #66c0f4"
+              >steam</span
+            >
           </div>
         </div>
       </section>
@@ -252,35 +387,202 @@
           <h2 class="text-[26px] font-bold text-white mb-2">Parameter Reference</h2>
           <p class="text-fg-muted mb-8">
             All parameters use underscores. Boolean values accept
-            <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">true</code>/<code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">false</code>,
-            <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">1</code>/<code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">0</code>,
-            <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">yes</code>/<code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">no</code>.
+            <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
+              >true</code
+            >/<code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
+              >false</code
+            >,
+            <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">1</code
+            >/<code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">0</code
+            >,
+            <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">yes</code
+            >/<code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
+              >no</code
+            >.
           </p>
           <div class="overflow-x-auto">
             <table class="w-full border-collapse text-[13px]">
               <thead>
                 <tr>
-                  <th class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset">Parameter</th>
-                  <th class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset">Required</th>
-                  <th class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset">Default</th>
-                  <th class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset">Description</th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Parameter
+                  </th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Required
+                  </th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Description
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">steamid</code></td><td class="px-3.5 py-2.5">Yes</td><td class="px-3.5 py-2.5">-</td><td class="px-3.5 py-2.5">SteamID64 or vanity URL username</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">theme</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">default</td><td class="px-3.5 py-2.5">Color theme name</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">hide_border</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">false</td><td class="px-3.5 py-2.5">Remove the card border</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">hide_bg</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">false</td><td class="px-3.5 py-2.5">Transparent background</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">border_radius</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">4</td><td class="px-3.5 py-2.5">Corner radius (0-20)</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">title_color</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">theme</td><td class="px-3.5 py-2.5">Hex color for titles (no #)</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">text_color</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">theme</td><td class="px-3.5 py-2.5">Hex color for body text</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">icon_color</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">theme</td><td class="px-3.5 py-2.5">Hex color for icons</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">bg_color</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">theme</td><td class="px-3.5 py-2.5">Hex color for background</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">border_color</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">theme</td><td class="px-3.5 py-2.5">Hex color for border</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">locale</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">en</td><td class="px-3.5 py-2.5">IETF language tag for number formatting</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">cache_seconds</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">3600</td><td class="px-3.5 py-2.5">Cache TTL in seconds (min 14400)</td></tr>
-                <tr class="border-b border-canvas-inset"><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">count</code></td><td class="px-3.5 py-2.5">No</td><td class="px-3.5 py-2.5">5</td><td class="px-3.5 py-2.5">Number of games (recently-played: 1-5, top-games: 1-10)</td></tr>
-                <tr><td class="px-3.5 py-2.5"><code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]">appids</code></td><td class="px-3.5 py-2.5">achievements only</td><td class="px-3.5 py-2.5">-</td><td class="px-3.5 py-2.5">Comma-separated App IDs (max 5)</td></tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >steamid</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">Yes</td>
+                  <td class="px-3.5 py-2.5">-</td>
+                  <td class="px-3.5 py-2.5">SteamID64 or vanity URL username</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >theme</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">default</td>
+                  <td class="px-3.5 py-2.5">Color theme name</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >hide_border</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">false</td>
+                  <td class="px-3.5 py-2.5">Remove the card border</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >hide_bg</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">false</td>
+                  <td class="px-3.5 py-2.5">Transparent background</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >border_radius</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">4</td>
+                  <td class="px-3.5 py-2.5">Corner radius (0-20)</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >title_color</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for titles (no #)</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >text_color</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for body text</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >icon_color</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for icons</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >bg_color</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for background</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >border_color</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for border</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >locale</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">en</td>
+                  <td class="px-3.5 py-2.5">IETF language tag for number formatting</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >cache_seconds</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">3600</td>
+                  <td class="px-3.5 py-2.5">Cache TTL in seconds (min 14400)</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >count</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">No</td>
+                  <td class="px-3.5 py-2.5">5</td>
+                  <td class="px-3.5 py-2.5">
+                    Number of games (recently-played: 1-5, top-games: 1-10)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >appids</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5">achievements only</td>
+                  <td class="px-3.5 py-2.5">-</td>
+                  <td class="px-3.5 py-2.5">Comma-separated App IDs (max 5)</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -292,63 +594,80 @@
         <div class="mx-auto max-w-[960px] px-6">
           <h2 class="text-[26px] font-bold text-white mb-8">Frequently Asked Questions</h2>
           <div class="flex flex-col gap-1">
-
             <details class="border border-canvas-inset rounded-lg overflow-hidden">
-              <summary class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg">
+              <summary
+                class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg"
+              >
                 How do I find my Steam ID?
               </summary>
               <p class="px-[18px] pb-4 text-sm text-fg-muted leading-relaxed">
                 Go to your Steam profile page. If you have a custom URL like
-                <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">steamcommunity.com/id/yourname</code>,
-                your vanity URL is <strong class="text-fg">yourname</strong>. Otherwise, your numeric SteamID64 appears in the URL as
-                <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">steamcommunity.com/profiles/76561198XXXXXXXXX</code>.
+                <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
+                  >steamcommunity.com/id/yourname</code
+                >, your vanity URL is <strong class="text-fg">yourname</strong>. Otherwise, your
+                numeric SteamID64 appears in the URL as
+                <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
+                  >steamcommunity.com/profiles/76561198XXXXXXXXX</code
+                >.
               </p>
             </details>
 
             <details class="border border-canvas-inset rounded-lg overflow-hidden">
-              <summary class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg">
+              <summary
+                class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg"
+              >
                 Why does my profile show as private?
               </summary>
               <p class="px-[18px] pb-4 text-sm text-fg-muted leading-relaxed">
-                In Steam, go to your profile, Edit Profile, Privacy Settings, and set Game Details to
-                <strong class="text-fg">Public</strong>. The Steam Web API only returns game data for public profiles.
+                In Steam, go to your profile, Edit Profile, Privacy Settings, and set Game Details
+                to
+                <strong class="text-fg">Public</strong>. The Steam Web API only returns game data
+                for public profiles.
               </p>
             </details>
 
             <details class="border border-canvas-inset rounded-lg overflow-hidden">
-              <summary class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg">
+              <summary
+                class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg"
+              >
                 How often does the data update?
               </summary>
               <p class="px-[18px] pb-4 text-sm text-fg-muted leading-relaxed">
-                Cards are cached for 1 hour on the CDN. After that, the next request fetches fresh data from Steam.
-                GitHub also caches images through its proxy, so updates may take up to a few hours to appear in your README.
+                Cards are cached for 1 hour on the CDN. After that, the next request fetches fresh
+                data from Steam. GitHub also caches images through its proxy, so updates may take up
+                to a few hours to appear in your README.
               </p>
             </details>
 
             <details class="border border-canvas-inset rounded-lg overflow-hidden">
-              <summary class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg">
+              <summary
+                class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg"
+              >
                 Why is my README showing an old version of the card?
               </summary>
               <p class="px-[18px] pb-4 text-sm text-fg-muted leading-relaxed">
                 GitHub caches external images. To force a refresh, append
-                <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs">?_cb=1</code>
+                <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
+                  >?_cb=1</code
+                >
                 to your embed URL (then remove it afterwards so the CDN cache is shared again).
               </p>
             </details>
 
             <details class="border border-canvas-inset rounded-lg overflow-hidden">
-              <summary class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg">
+              <summary
+                class="flex justify-between items-center px-[18px] py-3.5 cursor-pointer font-semibold text-sm text-fg"
+              >
                 Is my data stored anywhere?
               </summary>
               <p class="px-[18px] pb-4 text-sm text-fg-muted leading-relaxed">
-                No. This service is stateless. Steam API responses are used in-memory to render your SVG and are not stored.
+                No. This service is stateless. Steam API responses are used in-memory to render your
+                SVG and are not stored.
               </p>
             </details>
-
           </div>
         </div>
       </section>
-
     </main>
 
     <!-- Footer -->
@@ -356,11 +675,21 @@
       <div class="mx-auto max-w-[960px] px-6">
         <p>
           Built by
-          <a href="https://github.com/Nureka-Rodrigo" target="_blank" rel="noopener"
-            class="text-fg-muted no-underline hover:text-fg-accent transition-colors">Nureka Rodrigo</a>
+          <a
+            href="https://github.com/Nureka-Rodrigo"
+            target="_blank"
+            rel="noopener"
+            class="text-fg-muted no-underline hover:text-fg-accent transition-colors"
+            >Nureka Rodrigo</a
+          >
           · Not affiliated with Valve Corporation ·
-          <a href="https://github.com/Nureka-Rodrigo/Steam-Gaming-Stats" target="_blank" rel="noopener"
-            class="text-fg-muted no-underline hover:text-fg-accent transition-colors">Source on GitHub</a>
+          <a
+            href="https://github.com/Nureka-Rodrigo/Steam-Gaming-Stats"
+            target="_blank"
+            rel="noopener"
+            class="text-fg-muted no-underline hover:text-fg-accent transition-colors"
+            >Source on GitHub</a
+          >
         </p>
       </div>
     </footer>
@@ -373,11 +702,11 @@
       const CARD_LABELS = {
         'recently-played': 'Recently Played',
         'top-games': 'Top Games',
-        'library': 'Library Overview',
-        'achievements': 'Achievements',
-        'profile': 'Profile Overview',
-        'heatmap': 'Recent Activity',
-        'milestone': 'Playtime Milestone',
+        library: 'Library Overview',
+        achievements: 'Achievements',
+        profile: 'Profile Overview',
+        heatmap: 'Recent Activity',
+        milestone: 'Playtime Milestone',
       };
 
       function buildUrl() {
@@ -401,7 +730,10 @@
       }
 
       function loadPreview(url) {
-        if (!url) { showState('state-empty'); return; }
+        if (!url) {
+          showState('state-empty');
+          return;
+        }
         showState('state-loading');
         const seq = ++loadSeq;
         const previewUrl = url + '&_preview=' + Date.now();
@@ -420,18 +752,25 @@
 
       function syncOutputs(result) {
         const out = document.getElementById('builder-output');
-        if (!result) { out.style.display = 'none'; return; }
+        if (!result) {
+          out.style.display = 'none';
+          return;
+        }
         out.style.display = 'block';
         document.getElementById('output-url').value = result.url;
         document.getElementById('output-md').value = `![Steam Stats](${result.url})`;
-        document.getElementById('preview-card-name').textContent = CARD_LABELS[result.type] || result.type;
+        document.getElementById('preview-card-name').textContent =
+          CARD_LABELS[result.type] || result.type;
       }
 
       document.getElementById('steamid').addEventListener('input', () => {
         clearTimeout(debounceTimer);
         const result = buildUrl();
         syncOutputs(result);
-        if (!result) { showState('state-empty'); return; }
+        if (!result) {
+          showState('state-empty');
+          return;
+        }
         showState('state-loading');
         debounceTimer = setTimeout(() => loadPreview(result.url), 700);
       });
@@ -470,7 +809,9 @@
       faqItems.forEach((item) => {
         item.addEventListener('toggle', () => {
           if (item.open) {
-            faqItems.forEach((other) => { if (other !== item) other.removeAttribute('open'); });
+            faqItems.forEach((other) => {
+              if (other !== item) other.removeAttribute('open');
+            });
           }
         });
       });
