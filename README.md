@@ -187,8 +187,14 @@ Cards for private profiles return a styled error SVG explaining the issue.
 
 ---
 
+## Support
+
+If you find this useful, consider buying me a coffee!
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/nureka.rodrigo)
+
+---
+
 ## License
 
 [MIT](LICENSE) — Nureka Rodrigo
-
-> Not affiliated with Valve Corporation. Steam and the Steam logo are trademarks of Valve Corporation.
