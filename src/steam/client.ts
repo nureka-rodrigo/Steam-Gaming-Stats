@@ -99,10 +99,7 @@ export async function getRecentlyPlayedGames(steamId: string, count = 5): Promis
   const data = (await steamFetch(url)) as {
     response: { games?: RecentGame[] };
   };
-  if (!data.response.games) {
-    throw new SteamError('No recent games — profile may be private', 'private');
-  }
-  return data.response.games;
+  return data.response.games ?? [];
 }
 
 export async function getOwnedGames(
@@ -117,10 +114,7 @@ export async function getOwnedGames(
   const data = (await steamFetch(url)) as {
     response: { games?: OwnedGame[] };
   };
-  if (!data.response.games) {
-    throw new SteamError('No game library — profile may be private', 'private');
-  }
-  return data.response.games;
+  return data.response.games ?? [];
 }
 
 export async function getPlayerAchievements(
