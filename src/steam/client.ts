@@ -154,3 +154,91 @@ export async function getSchemaForGame(appId: number): Promise<GameSchema> {
 export function getGameIconUrl(appId: number, iconHash: string): string {
   return `https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${iconHash}.jpg`;
 }
+
+export interface PlayerLevelData {
+  level: number;
+  xp: number;
+  xpToNextLevel: number;
+  xpCurrentLevel: number;
+}
+
+export async function getPlayerLevel(steamId: string): Promise<PlayerLevelData> {
+  const key = getApiKey();
+  const url = `${STEAM_API_BASE}/IPlayerService/GetBadges/v1/?key=${key}&steamid=${steamId}`;
+  const data = (await steamFetch(url)) as {
+    response: {
+      player_xp?: number;
+      player_level?: number;
+      player_xp_needed_to_level_up?: number;
+      player_xp_needed_current_level?: number;
+    };
+  };
+  const r = data.response;
+  if (r.player_level === undefined) {
+    throw new SteamError('Steam level unavailable — profile may be private', 'private');
+  }
+  return {
+    level: r.player_level,
+    xp: r.player_xp ?? 0,
+    xpToNextLevel: r.player_xp_needed_to_level_up ?? 0,
+    xpCurrentLevel: r.player_xp_needed_current_level ?? 0,
+  };
+}
+
+export interface GameStatEntry {
+  name: string;
+  displayName: string;
+  value: number;
+}
+
+export async function getUserGameStats(
+  steamId: string,
+  appId: number,
+): Promise<{ gameName: string; stats: GameStatEntry[] }> {
+  const key = getApiKey();
+  const [statsData, schemaData] = await Promise.all([
+    steamFetch(
+      `${STEAM_API_BASE}/ISteamUserStats/GetUserStatsForGame/v2/?key=${key}&steamid=${steamId}&appid=${appId}`,
+    ),
+    steamFetch(
+      `${STEAM_API_BASE}/ISteamUserStats/GetSchemaForGame/v2/?key=${key}&appid=${appId}`,
+    ).catch(() => null),
+  ]);
+
+  const sd = statsData as {
+    playerstats?: {
+      success?: boolean;
+      error?: string;
+      gameName?: string;
+      stats?: { name: string; value: number }[];
+    };
+  };
+
+  if (sd.playerstats?.success === false) {
+    const msg = sd.playerstats.error ?? 'Stats unavailable';
+    const isPrivate =
+      msg.toLowerCase().includes('private') || msg.toLowerCase().includes('not public');
+    throw new SteamError(msg, isPrivate ? 'private' : 'no_data');
+  }
+
+  const schema = (schemaData ?? {}) as {
+    game?: {
+      gameName?: string;
+      availableGameStats?: { stats?: { name: string; displayName?: string }[] };
+    };
+  };
+
+  const displayNameMap = new Map<string, string>();
+  for (const s of schema.game?.availableGameStats?.stats ?? []) {
+    if (s.displayName) displayNameMap.set(s.name, s.displayName);
+  }
+
+  const gameName = sd.playerstats?.gameName ?? schema.game?.gameName ?? `App ${appId}`;
+  const stats: GameStatEntry[] = (sd.playerstats?.stats ?? []).map((s) => ({
+    name: s.name,
+    displayName: displayNameMap.get(s.name) ?? s.name,
+    value: s.value,
+  }));
+
+  return { gameName, stats };
+}

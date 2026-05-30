@@ -152,6 +152,8 @@
                     <option value="profile">Profile Overview</option>
                     <option value="heatmap">Recent Activity</option>
                     <option value="milestone">Playtime Milestone</option>
+                    <option value="steam-level">Steam Level</option>
+                    <option value="game-stats">Game Stats</option>
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
                     <svg class="w-4 h-4 text-fg-muted" fill="none" viewBox="0 0 20 20">
@@ -201,11 +203,13 @@
               </div>
             </div>
 
-            <!-- App IDs (achievements only) -->
+            <!-- App ID(s) field (achievements + game-stats) -->
             <div id="appids-field" style="display: none" class="flex flex-col gap-1.5 mb-4">
               <label for="appids" class="text-[13px] text-fg-muted font-medium">
-                App IDs
-                <span class="text-fg-muted/60 font-normal ml-1">comma-separated, max 5</span>
+                <span id="appids-label">App IDs</span>
+                <span id="appids-hint" class="text-fg-muted/60 font-normal ml-1"
+                  >comma-separated, max 5</span
+                >
               </label>
               <input
                 type="text"
@@ -844,7 +848,7 @@
                   <td class="px-3.5 py-2.5">Show currently or recently played game</td>
                 </tr>
                 <!-- milestone -->
-                <tr>
+                <tr class="border-b border-canvas-inset">
                   <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Playtime Milestone</td>
                   <td class="px-3.5 py-2.5">
                     <code
@@ -856,6 +860,42 @@
                   <td class="px-3.5 py-2.5">
                     Label style: <code class="text-[11px]">fun</code> (humorous) or
                     <code class="text-[11px]">numeric</code>
+                  </td>
+                </tr>
+                <!-- game-stats -->
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Game Stats</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >appid</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">required</td>
+                  <td class="px-3.5 py-2.5">Steam App ID of the game</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Game Stats</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >count</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">5</code></td>
+                  <td class="px-3.5 py-2.5">Number of stats to show (1–10)</td>
+                </tr>
+                <tr>
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Game Stats</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >stats</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">—</td>
+                  <td class="px-3.5 py-2.5">
+                    Comma-separated internal stat names to pin specific stats
                   </td>
                 </tr>
               </tbody>
@@ -1007,13 +1047,29 @@
         profile: 'Profile Overview',
         heatmap: 'Recent Activity',
         milestone: 'Playtime Milestone',
+        'steam-level': 'Steam Level',
+        'game-stats': 'Game Stats',
       };
 
       function syncAppIdsField() {
         const type = document.getElementById('card-type').value;
-        document.getElementById('appids-field').style.display =
-          type === 'achievements' ? 'flex' : 'none';
-        document.getElementById('appids-field').style.flexDirection = 'column';
+        const field = document.getElementById('appids-field');
+        const input = document.getElementById('appids');
+        if (type === 'achievements' || type === 'game-stats') {
+          field.style.display = 'flex';
+          field.style.flexDirection = 'column';
+          if (type === 'game-stats') {
+            document.getElementById('appids-label').textContent = 'App ID';
+            document.getElementById('appids-hint').textContent = 'single game';
+            input.placeholder = 'e.g. 730';
+          } else {
+            document.getElementById('appids-label').textContent = 'App IDs';
+            document.getElementById('appids-hint').textContent = 'comma-separated, max 5';
+            input.placeholder = 'e.g. 730,570,440';
+          }
+        } else {
+          field.style.display = 'none';
+        }
       }
 
       function buildUrl() {
@@ -1024,9 +1080,10 @@
         const hideBorder = document.getElementById('hide-border').checked;
         const hideBg = document.getElementById('hide-bg').checked;
         const appids = document.getElementById('appids').value.trim();
-        if (type === 'achievements' && !appids) return null;
+        if ((type === 'achievements' || type === 'game-stats') && !appids) return null;
         let url = `${BASE}/api/${type}?steamid=${encodeURIComponent(steamid)}`;
         if (type === 'achievements') url += `&appids=${encodeURIComponent(appids)}`;
+        if (type === 'game-stats') url += `&appid=${encodeURIComponent(appids)}`;
         if (theme !== 'default') url += `&theme=${theme}`;
         if (hideBorder) url += '&hide_border=true';
         if (hideBg) url += '&hide_bg=true';
@@ -1088,10 +1145,12 @@
         if (!result) {
           const steamid = document.getElementById('steamid').value.trim();
           const type = document.getElementById('card-type').value;
-          const needsAppIds = type === 'achievements' && steamid;
-          document.getElementById('state-empty-msg').innerHTML = needsAppIds
-            ? 'Enter App IDs<br />to see a live preview'
-            : 'Enter your Steam ID<br />to see a live preview';
+          let emptyMsg = 'Enter your Steam ID<br />to see a live preview';
+          if (steamid && type === 'achievements')
+            emptyMsg = 'Enter App IDs<br />to see a live preview';
+          if (steamid && type === 'game-stats')
+            emptyMsg = 'Enter an App ID<br />to see a live preview';
+          document.getElementById('state-empty-msg').innerHTML = emptyMsg;
           showState('state-empty');
           return;
         }

@@ -82,6 +82,24 @@ Total hours with fun milestone labels.
 ![Milestone](https://steam-gaming-stats.netlify.app/api/milestone?steamid=YOUR_ID&theme=synthwave)
 ```
 
+### Steam Level
+
+Steam level, XP earned in the current level, and a progress bar to the next level.
+
+```md
+![Steam Level](https://steam-gaming-stats.netlify.app/api/steam-level?steamid=YOUR_ID&theme=dark)
+```
+
+### Game Stats
+
+Top stats for a specific game, ranked by value with display names sourced from the game's own schema.
+
+```md
+![Game Stats](https://steam-gaming-stats.netlify.app/api/game-stats?steamid=YOUR_ID&appid=730&theme=tokyonight)
+```
+
+Use the App ID from the game's Steam store page URL, e.g. `store.steampowered.com/app/730/` → `730`. Not all games expose stats through the Steam Web API — the card will show "No Stats Available" for those.
+
 ---
 
 ## Parameters
@@ -109,23 +127,26 @@ Boolean parameters accept `true`/`false`, `1`/`0`, `yes`/`no` (case-insensitive)
 
 ### Card-Specific
 
-| Card            | Parameter                | Default      | Description                                |
-| --------------- | ------------------------ | ------------ | ------------------------------------------ |
-| recently-played | `count`                  | `5`          | Number of games to show (1–5)              |
-| recently-played | `show_playtime`          | `true`       | Show playtime label next to each bar       |
-| recently-played | `show_icons`             | `true`       | Show game icons                            |
-| top-games       | `count`                  | `5`          | Number of games to show (1–10)             |
-| top-games       | `show_icons`             | `true`       | Show game icons                            |
-| top-games       | `show_rank_numbers`      | `true`       | Show rank numbers (1., 2., …)              |
-| library         | `show_free_games`        | `true`       | Include free-to-play games in counts       |
-| library         | `highlight_top_game`     | `true`       | Show the most-played game stat box         |
-| achievements    | `appids`                 | **required** | Comma-separated App IDs (max 5)            |
-| achievements    | `show_ratio`             | `true`       | Show earned/total ratio                    |
-| achievements    | `progress_style`         | `bar`        | Progress indicator style: `bar` or `arc`   |
-| profile         | `show_avatar`            | `true`       | Show the player avatar                     |
-| profile         | `show_status`            | `true`       | Show online/offline/in-game status         |
-| profile         | `show_currently_playing` | `true`       | Show currently or recently played game     |
-| milestone       | `milestone_style`        | `fun`        | Label style: `fun` (humorous) or `numeric` |
+| Card            | Parameter                | Default      | Description                                               |
+| --------------- | ------------------------ | ------------ | --------------------------------------------------------- |
+| recently-played | `count`                  | `5`          | Number of games to show (1–5)                             |
+| recently-played | `show_playtime`          | `true`       | Show playtime label next to each bar                      |
+| recently-played | `show_icons`             | `true`       | Show game icons                                           |
+| top-games       | `count`                  | `5`          | Number of games to show (1–10)                            |
+| top-games       | `show_icons`             | `true`       | Show game icons                                           |
+| top-games       | `show_rank_numbers`      | `true`       | Show rank numbers (1., 2., …)                             |
+| library         | `show_free_games`        | `true`       | Include free-to-play games in counts                      |
+| library         | `highlight_top_game`     | `true`       | Show the most-played game stat box                        |
+| achievements    | `appids`                 | **required** | Comma-separated App IDs (max 5)                           |
+| achievements    | `show_ratio`             | `true`       | Show earned/total ratio                                   |
+| achievements    | `progress_style`         | `bar`        | Progress indicator style: `bar` or `arc`                  |
+| profile         | `show_avatar`            | `true`       | Show the player avatar                                    |
+| profile         | `show_status`            | `true`       | Show online/offline/in-game status                        |
+| profile         | `show_currently_playing` | `true`       | Show currently or recently played game                    |
+| milestone       | `milestone_style`        | `fun`        | Label style: `fun` (humorous) or `numeric`                |
+| game-stats      | `appid`                  | **required** | Steam App ID of the game                                  |
+| game-stats      | `count`                  | `5`          | Number of stats to show (1–10)                            |
+| game-stats      | `stats`                  | —            | Comma-separated internal stat names to pin specific stats |
 
 ---
 
