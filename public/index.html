@@ -446,7 +446,7 @@
       <section id="docs" class="py-16 bg-canvas-overlay">
         <div class="mx-auto max-w-[960px] px-6">
           <h2 class="text-[26px] font-bold text-white mb-2">Parameter Reference</h2>
-          <p class="text-fg-muted mb-8">
+          <p class="text-fg-muted mb-10">
             All parameters use underscores. Boolean values accept
             <code class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-xs"
               >true</code
@@ -461,7 +461,11 @@
               >no</code
             >.
           </p>
-          <div class="overflow-x-auto">
+
+          <!-- Common Parameters -->
+          <h3 class="text-[17px] font-semibold text-white mb-1">Common Parameters</h3>
+          <p class="text-fg-muted text-sm mb-4">Accepted by every card endpoint.</p>
+          <div class="overflow-x-auto mb-10">
             <table class="w-full border-collapse text-[13px]">
               <thead>
                 <tr>
@@ -496,7 +500,7 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">Yes</td>
-                  <td class="px-3.5 py-2.5">-</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">—</td>
                   <td class="px-3.5 py-2.5">SteamID64 or vanity URL username</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
@@ -507,7 +511,7 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">default</td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">default</code></td>
                   <td class="px-3.5 py-2.5">Color theme name</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
@@ -518,7 +522,7 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">false</td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">false</code></td>
                   <td class="px-3.5 py-2.5">Remove the card border</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
@@ -529,7 +533,7 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">false</td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">false</code></td>
                   <td class="px-3.5 py-2.5">Transparent background</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
@@ -540,8 +544,8 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">4</td>
-                  <td class="px-3.5 py-2.5">Corner radius (0-20)</td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">4</code></td>
+                  <td class="px-3.5 py-2.5">Corner radius in SVG units (0–20)</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
                   <td class="px-3.5 py-2.5">
@@ -551,8 +555,10 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">theme</td>
-                  <td class="px-3.5 py-2.5">Hex color for titles (no #)</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">theme</td>
+                  <td class="px-3.5 py-2.5">
+                    Hex color for the card title (no <code class="text-[11px]">#</code>)
+                  </td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
                   <td class="px-3.5 py-2.5">
@@ -562,7 +568,7 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">theme</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">theme</td>
                   <td class="px-3.5 py-2.5">Hex color for body text</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
@@ -573,8 +579,8 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">theme</td>
-                  <td class="px-3.5 py-2.5">Hex color for icons</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for the header icon</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
                   <td class="px-3.5 py-2.5">
@@ -584,8 +590,8 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">theme</td>
-                  <td class="px-3.5 py-2.5">Hex color for background</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for the background</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
                   <td class="px-3.5 py-2.5">
@@ -595,8 +601,8 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">theme</td>
-                  <td class="px-3.5 py-2.5">Hex color for border</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">theme</td>
+                  <td class="px-3.5 py-2.5">Hex color for the border</td>
                 </tr>
                 <tr class="border-b border-canvas-inset">
                   <td class="px-3.5 py-2.5">
@@ -606,10 +612,10 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">en</td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">en</code></td>
                   <td class="px-3.5 py-2.5">IETF language tag for number formatting</td>
                 </tr>
-                <tr class="border-b border-canvas-inset">
+                <tr>
                   <td class="px-3.5 py-2.5">
                     <code
                       class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
@@ -617,32 +623,221 @@
                     >
                   </td>
                   <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">3600</td>
-                  <td class="px-3.5 py-2.5">Cache TTL in seconds (min 14400)</td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">3600</code></td>
+                  <td class="px-3.5 py-2.5">Cache TTL in seconds (min 14400, max 86400)</td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Card-Specific Parameters -->
+          <h3 class="text-[17px] font-semibold text-white mb-1">Card-Specific Parameters</h3>
+          <p class="text-fg-muted text-sm mb-4">
+            Only accepted by the card listed in the Card column.
+          </p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-[13px]">
+              <thead>
+                <tr>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Card
+                  </th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Parameter
+                  </th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Default
+                  </th>
+                  <th
+                    class="text-left px-3.5 py-2.5 bg-canvas text-fg-muted font-semibold border-b border-canvas-inset"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- recently-played -->
                 <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Recently Played</td>
                   <td class="px-3.5 py-2.5">
                     <code
                       class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
                       >count</code
                     >
                   </td>
-                  <td class="px-3.5 py-2.5">No</td>
-                  <td class="px-3.5 py-2.5">5</td>
-                  <td class="px-3.5 py-2.5">
-                    Number of games (recently-played: 1-5, top-games: 1-10)
-                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">5</code></td>
+                  <td class="px-3.5 py-2.5">Number of games to show (1–5)</td>
                 </tr>
-                <tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Recently Played</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_playtime</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show playtime label next to each bar</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Recently Played</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_icons</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show game icons</td>
+                </tr>
+                <!-- top-games -->
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Top Games</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >count</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">5</code></td>
+                  <td class="px-3.5 py-2.5">Number of games to show (1–10)</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Top Games</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_icons</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show game icons</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Top Games</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_rank_numbers</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show rank numbers (1., 2., …)</td>
+                </tr>
+                <!-- library -->
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Library Overview</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_free_games</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Include free-to-play games in counts</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Library Overview</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >highlight_top_game</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show the most-played game stat box</td>
+                </tr>
+                <!-- achievements -->
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Achievements</td>
                   <td class="px-3.5 py-2.5">
                     <code
                       class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
                       >appids</code
                     >
                   </td>
-                  <td class="px-3.5 py-2.5">achievements only</td>
-                  <td class="px-3.5 py-2.5">-</td>
+                  <td class="px-3.5 py-2.5 text-fg-muted">required</td>
                   <td class="px-3.5 py-2.5">Comma-separated App IDs (max 5)</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Achievements</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_ratio</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show earned/total ratio</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Achievements</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >progress_style</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">bar</code></td>
+                  <td class="px-3.5 py-2.5">
+                    Progress indicator style: <code class="text-[11px]">bar</code> or
+                    <code class="text-[11px]">arc</code>
+                  </td>
+                </tr>
+                <!-- profile -->
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Profile Overview</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_avatar</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show the player avatar</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Profile Overview</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_status</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show online/offline/in-game status</td>
+                </tr>
+                <tr class="border-b border-canvas-inset">
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Profile Overview</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >show_currently_playing</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">true</code></td>
+                  <td class="px-3.5 py-2.5">Show currently or recently played game</td>
+                </tr>
+                <!-- milestone -->
+                <tr>
+                  <td class="px-3.5 py-2.5 text-fg-muted whitespace-nowrap">Playtime Milestone</td>
+                  <td class="px-3.5 py-2.5">
+                    <code
+                      class="bg-canvas border border-canvas-inset rounded px-1 py-0.5 text-[11px]"
+                      >milestone_style</code
+                    >
+                  </td>
+                  <td class="px-3.5 py-2.5"><code class="text-[11px]">fun</code></td>
+                  <td class="px-3.5 py-2.5">
+                    Label style: <code class="text-[11px]">fun</code> (humorous) or
+                    <code class="text-[11px]">numeric</code>
+                  </td>
                 </tr>
               </tbody>
             </table>
