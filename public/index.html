@@ -107,14 +107,28 @@
               <label for="steamid" class="text-[13px] text-fg-muted font-medium"
                 >Steam ID or Vanity URL</label
               >
-              <input
-                type="text"
-                id="steamid"
-                placeholder="e.g. 76561198012345678 or gaben"
-                autocomplete="off"
-                spellcheck="false"
-                class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent focus:border-fg-accent transition-shadow"
-              />
+              <div class="relative">
+                <div class="absolute inset-y-0 left-3.5 flex items-center pointer-events-none">
+                  <svg
+                    class="w-4 h-4 text-fg-muted"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2a10 10 0 0 0-9.95 9h.01c.27 3.06 2.17 5.67 4.87 6.97l1.79-4.4a2.99 2.99 0 0 1-.72-3.57 3 3 0 0 1 3-1.5c.12.01.25.03.37.06L15.2 4.3A9.96 9.96 0 0 0 12 2zm7.94 8.01A10 10 0 0 1 12 22a10.03 10.03 0 0 1-4.74-1.19l2.38-5.83a3 3 0 1 0 4.24-3.97l5.06-1z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  id="steamid"
+                  placeholder="e.g. 76561198012345678 or gaben"
+                  autocomplete="off"
+                  spellcheck="false"
+                  class="bg-canvas-overlay border border-canvas-inset rounded-lg text-fg text-sm pl-10 pr-4 py-3 w-full outline-none placeholder:text-fg-muted/40 hover:border-fg-muted focus:border-fg-accent focus:ring-2 focus:ring-fg-accent/20 transition-all duration-200"
+                />
+              </div>
             </div>
 
             <!-- Card Type + Theme -->
@@ -123,62 +137,114 @@
                 <label for="card-type" class="text-[13px] text-fg-muted font-medium"
                   >Card Type</label
                 >
-                <select
-                  id="card-type"
-                  class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent"
-                >
-                  <option value="recently-played">Recently Played</option>
-                  <option value="top-games">Top Games</option>
-                  <option value="library">Library Overview</option>
-                  <option value="achievements">Achievements</option>
-                  <option value="profile">Profile Overview</option>
-                  <option value="heatmap">Recent Activity</option>
-                  <option value="milestone">Playtime Milestone</option>
-                </select>
+                <div class="relative">
+                  <select
+                    id="card-type"
+                    class="appearance-none bg-canvas-overlay border border-canvas-inset rounded-lg text-fg text-sm px-4 py-3 pr-10 w-full outline-none hover:border-fg-muted focus:border-fg-accent focus:ring-2 focus:ring-fg-accent/20 cursor-pointer transition-all duration-200"
+                  >
+                    <option value="recently-played">Recently Played</option>
+                    <option value="top-games">Top Games</option>
+                    <option value="library">Library Overview</option>
+                    <option value="achievements">Achievements</option>
+                    <option value="profile">Profile Overview</option>
+                    <option value="heatmap">Recent Activity</option>
+                    <option value="milestone">Playtime Milestone</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                    <svg class="w-4 h-4 text-fg-muted" fill="none" viewBox="0 0 20 20">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="m6 8 4 4 4-4"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
               <div class="flex-1 flex flex-col gap-1.5">
                 <label for="theme" class="text-[13px] text-fg-muted font-medium">Theme</label>
-                <select
-                  id="theme"
-                  class="bg-canvas border border-canvas-inset rounded-md text-fg text-sm px-3 py-2.5 w-full outline-none focus:ring-2 focus:ring-fg-accent"
-                >
-                  <option value="default">Default (Light)</option>
-                  <option value="dark">Dark</option>
-                  <option value="radical">Radical</option>
-                  <option value="merko">Merko</option>
-                  <option value="gruvbox">Gruvbox</option>
-                  <option value="tokyonight">Tokyo Night</option>
-                  <option value="onedark">One Dark</option>
-                  <option value="cobalt">Cobalt</option>
-                  <option value="synthwave">Synthwave</option>
-                  <option value="highcontrast">High Contrast</option>
-                  <option value="dracula">Dracula</option>
-                  <option value="steam">Steam</option>
-                </select>
+                <div class="relative">
+                  <select
+                    id="theme"
+                    class="appearance-none bg-canvas-overlay border border-canvas-inset rounded-lg text-fg text-sm px-4 py-3 pr-10 w-full outline-none hover:border-fg-muted focus:border-fg-accent focus:ring-2 focus:ring-fg-accent/20 cursor-pointer transition-all duration-200"
+                  >
+                    <option value="default">Default (Light)</option>
+                    <option value="dark">Dark</option>
+                    <option value="radical">Radical</option>
+                    <option value="merko">Merko</option>
+                    <option value="gruvbox">Gruvbox</option>
+                    <option value="tokyonight">Tokyo Night</option>
+                    <option value="onedark">One Dark</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="synthwave">Synthwave</option>
+                    <option value="highcontrast">High Contrast</option>
+                    <option value="dracula">Dracula</option>
+                    <option value="steam">Steam</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                    <svg class="w-4 h-4 text-fg-muted" fill="none" viewBox="0 0 20 20">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="m6 8 4 4 4-4"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Checkboxes -->
             <div class="flex gap-5 flex-wrap mb-4">
-              <label
-                class="flex items-center gap-2 text-[13px] text-fg-muted cursor-pointer select-none"
-              >
-                <input
-                  type="checkbox"
-                  id="hide-border"
-                  class="accent-fg-accent w-3.5 h-3.5 cursor-pointer"
-                />
-                Hide border
+              <label class="flex items-center gap-3 cursor-pointer select-none group">
+                <div class="relative w-5 h-5 flex-shrink-0">
+                  <input type="checkbox" id="hide-border" class="peer sr-only" />
+                  <div
+                    class="w-5 h-5 rounded-[5px] border-2 border-canvas-inset bg-canvas-overlay group-hover:border-fg-muted peer-checked:bg-fg-accent peer-checked:border-fg-accent peer-focus-visible:ring-2 peer-focus-visible:ring-fg-accent/40 transition-all duration-150"
+                  ></div>
+                  <svg
+                    class="absolute inset-0 m-auto w-3 h-3 text-canvas opacity-0 peer-checked:opacity-100 transition-opacity duration-150 pointer-events-none"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </div>
+                <span
+                  class="text-[13px] text-fg-muted group-hover:text-fg transition-colors duration-150"
+                  >Hide border</span
+                >
               </label>
-              <label
-                class="flex items-center gap-2 text-[13px] text-fg-muted cursor-pointer select-none"
-              >
-                <input
-                  type="checkbox"
-                  id="hide-bg"
-                  class="accent-fg-accent w-3.5 h-3.5 cursor-pointer"
-                />
-                Transparent background
+              <label class="flex items-center gap-3 cursor-pointer select-none group">
+                <div class="relative w-5 h-5 flex-shrink-0">
+                  <input type="checkbox" id="hide-bg" class="peer sr-only" />
+                  <div
+                    class="w-5 h-5 rounded-[5px] border-2 border-canvas-inset bg-canvas-overlay group-hover:border-fg-muted peer-checked:bg-fg-accent peer-checked:border-fg-accent peer-focus-visible:ring-2 peer-focus-visible:ring-fg-accent/40 transition-all duration-150"
+                  ></div>
+                  <svg
+                    class="absolute inset-0 m-auto w-3 h-3 text-canvas opacity-0 peer-checked:opacity-100 transition-opacity duration-150 pointer-events-none"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </div>
+                <span
+                  class="text-[13px] text-fg-muted group-hover:text-fg transition-colors duration-150"
+                  >Transparent background</span
+                >
               </label>
             </div>
 
