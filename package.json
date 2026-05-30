@@ -1,6 +1,6 @@
 {
   "name": "steam-gaming-stats",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Serverless SVG card generator for Steam profiles — embeddable in GitHub READMEs",
   "main": "dist/src/index.js",
   "scripts": {
