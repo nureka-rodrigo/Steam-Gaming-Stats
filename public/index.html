@@ -1030,7 +1030,7 @@
           CARD_LABELS[result.type] || result.type;
       }
 
-      document.getElementById('steamid').addEventListener('input', () => {
+      function schedulePreview() {
         clearTimeout(debounceTimer);
         const result = buildUrl();
         syncOutputs(result);
@@ -1040,21 +1040,14 @@
         }
         showState('state-loading');
         debounceTimer = setTimeout(() => loadPreview(result.url), 700);
-      });
+      }
 
+      document.getElementById('steamid').addEventListener('input', schedulePreview);
       ['card-type', 'theme'].forEach((id) => {
-        document.getElementById(id).addEventListener('change', () => {
-          const result = buildUrl();
-          syncOutputs(result);
-          loadPreview(result ? result.url : null);
-        });
+        document.getElementById(id).addEventListener('change', schedulePreview);
       });
       ['hide-border', 'hide-bg'].forEach((id) => {
-        document.getElementById(id).addEventListener('change', () => {
-          const result = buildUrl();
-          syncOutputs(result);
-          loadPreview(result ? result.url : null);
-        });
+        document.getElementById(id).addEventListener('change', schedulePreview);
       });
 
       function makeCopy(btnId, inputId) {
