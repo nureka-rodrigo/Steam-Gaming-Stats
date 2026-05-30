@@ -20,7 +20,7 @@ export function parseSteamId(value: string | undefined): string | null {
   if (!value) return null;
   const trimmed = value.trim();
   if (/^\d{17}$/.test(trimmed) && trimmed.startsWith('7656119')) return trimmed;
-  if (/^[a-zA-Z0-9_]{1,64}$/.test(trimmed)) return trimmed;
+  if (/^[a-zA-Z0-9_-]{1,64}$/.test(trimmed)) return trimmed;
   return null;
 }
 

@@ -14,10 +14,10 @@ Paste a URL into your Markdown file. GitHub fetches it, receives a valid SVG, an
 ```
 
 Replace `YOUR_STEAM_ID` with your **SteamID64** (e.g. `76561198890357762`) or your **vanity URL username** (e.g.
-`gaben`).
+`nureka-rodrigo`).
 
 > **Finding your SteamID64:** Open your Steam profile in a browser. The URL will look like
-> `steamcommunity.com/id/gaben` (vanity) or `steamcommunity.com/profiles/76561198890357762` (SteamID64). You can also
+> `steamcommunity.com/id/nureka-rodrigo` (vanity) or `steamcommunity.com/profiles/76561198890357762` (SteamID64). You can also
 > use [steamid.io](https://steamid.io) to look it up.
 
 ---
