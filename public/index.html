@@ -341,13 +341,8 @@
               </div>
 
               <!-- Card -->
-              <div id="state-card" style="display: none" class="flex w-full p-0">
-                <img
-                  id="preview-img"
-                  src=""
-                  alt="Steam stats card preview"
-                  class="block max-w-full h-auto rounded"
-                />
+              <div id="state-card" style="display: none" class="w-full">
+                <div id="preview-svg-container" class="w-full"></div>
               </div>
 
               <!-- Error -->
@@ -795,7 +790,7 @@
         });
       }
 
-      function loadPreview(url) {
+      async function loadPreview(url) {
         if (!url) {
           showState('state-empty');
           return;
@@ -803,17 +798,25 @@
         showState('state-loading');
         const seq = ++loadSeq;
         const previewUrl = url + '&_preview=' + Date.now();
-        const tmp = new Image();
-        tmp.onload = () => {
+        try {
+          const res = await fetch(previewUrl);
+          if (!res.ok) throw new Error('API error');
+          const svgText = await res.text();
           if (seq !== loadSeq) return;
-          document.getElementById('preview-img').src = previewUrl;
+          const container = document.getElementById('preview-svg-container');
+          container.innerHTML = svgText;
+          const svgEl = container.querySelector('svg');
+          if (svgEl) {
+            svgEl.style.maxWidth = '100%';
+            svgEl.style.height = 'auto';
+            svgEl.style.display = 'block';
+            svgEl.style.borderRadius = '4px';
+          }
           showState('state-card');
-        };
-        tmp.onerror = () => {
+        } catch {
           if (seq !== loadSeq) return;
           showState('state-error');
-        };
-        tmp.src = previewUrl;
+        }
       }
 
       function syncOutputs(result) {
