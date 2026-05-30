@@ -1,0 +1,6 @@
+/* FAQ accordion toggle indicator */
+summary { list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-size: 18px; color: #8b949e; flex-shrink: 0; }
+details[open] summary::after { content: '-'; }
+details[open] { background-color: #161b22; }
