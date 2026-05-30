@@ -201,6 +201,22 @@
               </div>
             </div>
 
+            <!-- App IDs (achievements only) -->
+            <div id="appids-field" style="display: none" class="flex flex-col gap-1.5 mb-4">
+              <label for="appids" class="text-[13px] text-fg-muted font-medium">
+                App IDs
+                <span class="text-fg-muted/60 font-normal ml-1">comma-separated, max 5</span>
+              </label>
+              <input
+                type="text"
+                id="appids"
+                placeholder="e.g. 730,570,440"
+                autocomplete="off"
+                spellcheck="false"
+                class="bg-canvas-overlay border border-canvas-inset rounded-lg text-fg text-sm px-4 py-3 w-full outline-none placeholder:text-fg-muted/40 hover:border-fg-muted focus:border-fg-accent focus:ring-2 focus:ring-fg-accent/20 transition-all duration-200"
+              />
+            </div>
+
             <!-- Checkboxes -->
             <div class="flex gap-5 flex-wrap mb-4">
               <label class="flex items-center gap-3 cursor-pointer select-none group">
@@ -968,6 +984,13 @@
         milestone: 'Playtime Milestone',
       };
 
+      function syncAppIdsField() {
+        const type = document.getElementById('card-type').value;
+        document.getElementById('appids-field').style.display =
+          type === 'achievements' ? 'flex' : 'none';
+        document.getElementById('appids-field').style.flexDirection = 'column';
+      }
+
       function buildUrl() {
         const steamid = document.getElementById('steamid').value.trim();
         if (!steamid) return null;
@@ -975,7 +998,10 @@
         const theme = document.getElementById('theme').value;
         const hideBorder = document.getElementById('hide-border').checked;
         const hideBg = document.getElementById('hide-bg').checked;
+        const appids = document.getElementById('appids').value.trim();
+        if (type === 'achievements' && !appids) return null;
         let url = `${BASE}/api/${type}?steamid=${encodeURIComponent(steamid)}`;
+        if (type === 'achievements') url += `&appids=${encodeURIComponent(appids)}`;
         if (theme !== 'default') url += `&theme=${theme}`;
         if (hideBorder) url += '&hide_border=true';
         if (hideBg) url += '&hide_bg=true';
@@ -1042,10 +1068,15 @@
         debounceTimer = setTimeout(() => loadPreview(result.url), 700);
       }
 
+      syncAppIdsField();
+
       document.getElementById('steamid').addEventListener('input', schedulePreview);
-      ['card-type', 'theme'].forEach((id) => {
-        document.getElementById(id).addEventListener('change', schedulePreview);
+      document.getElementById('appids').addEventListener('input', schedulePreview);
+      document.getElementById('card-type').addEventListener('change', () => {
+        syncAppIdsField();
+        schedulePreview();
       });
+      document.getElementById('theme').addEventListener('change', schedulePreview);
       ['hide-border', 'hide-bg'].forEach((id) => {
         document.getElementById(id).addEventListener('change', schedulePreview);
       });

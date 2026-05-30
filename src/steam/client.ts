@@ -72,7 +72,7 @@ export interface PlayerAchievement {
 
 export async function resolveVanityUrl(vanityUrl: string): Promise<string> {
   const key = getApiKey();
-  const url = `${STEAM_API_BASE}/ISteamUser/ResolveVanityURL/v0001/?key=${key}&vanityurl=${encodeURIComponent(vanityUrl)}`;
+  const url = `${STEAM_API_BASE}/ISteamUser/ResolveVanityURL/v1/?key=${key}&vanityurl=${encodeURIComponent(vanityUrl)}`;
   const data = (await steamFetch(url)) as {
     response: { success: number; steamid?: string };
   };
@@ -84,7 +84,7 @@ export async function resolveVanityUrl(vanityUrl: string): Promise<string> {
 
 export async function getPlayerSummaries(steamId: string): Promise<PlayerSummary> {
   const key = getApiKey();
-  const url = `${STEAM_API_BASE}/ISteamUser/GetPlayerSummaries/v0002/?key=${key}&steamids=${steamId}`;
+  const url = `${STEAM_API_BASE}/ISteamUser/GetPlayerSummaries/v2/?key=${key}&steamids=${steamId}`;
   const data = (await steamFetch(url)) as {
     response: { players: PlayerSummary[] };
   };
@@ -95,7 +95,7 @@ export async function getPlayerSummaries(steamId: string): Promise<PlayerSummary
 
 export async function getRecentlyPlayedGames(steamId: string, count = 5): Promise<RecentGame[]> {
   const key = getApiKey();
-  const url = `${STEAM_API_BASE}/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamId}&count=${count}`;
+  const url = `${STEAM_API_BASE}/IPlayerService/GetRecentlyPlayedGames/v1/?key=${key}&steamid=${steamId}&count=${count}`;
   const data = (await steamFetch(url)) as {
     response: { games?: RecentGame[] };
   };
@@ -109,7 +109,7 @@ export async function getOwnedGames(
   const key = getApiKey();
   const freeFlag = includePlayedFreeGames ? 1 : 0;
   const url =
-    `${STEAM_API_BASE}/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${steamId}` +
+    `${STEAM_API_BASE}/IPlayerService/GetOwnedGames/v1/?key=${key}&steamid=${steamId}` +
     `&include_appinfo=1&include_played_free_games=${freeFlag}`;
   const data = (await steamFetch(url)) as {
     response: { games?: OwnedGame[] };
@@ -123,7 +123,7 @@ export async function getPlayerAchievements(
 ): Promise<PlayerAchievement[]> {
   const key = getApiKey();
   const url =
-    `${STEAM_API_BASE}/ISteamUserStats/GetPlayerAchievements/v0001/?key=${key}` +
+    `${STEAM_API_BASE}/ISteamUserStats/GetPlayerAchievements/v1/?key=${key}` +
     `&steamid=${steamId}&appid=${appId}`;
   const data = (await steamFetch(url)) as {
     playerstats: { success: boolean; achievements?: PlayerAchievement[]; error?: string };
@@ -134,13 +134,21 @@ export async function getPlayerAchievements(
   return data.playerstats.achievements ?? [];
 }
 
-export async function getSchemaForGame(appId: number): Promise<number> {
+export interface GameSchema {
+  gameName: string;
+  achievementCount: number;
+}
+
+export async function getSchemaForGame(appId: number): Promise<GameSchema> {
   const key = getApiKey();
   const url = `${STEAM_API_BASE}/ISteamUserStats/GetSchemaForGame/v2/?key=${key}&appid=${appId}`;
   const data = (await steamFetch(url)) as {
-    game?: { availableGameStats?: { achievements?: unknown[] } };
+    game?: { gameName?: string; availableGameStats?: { achievements?: unknown[] } };
   };
-  return data.game?.availableGameStats?.achievements?.length ?? 0;
+  return {
+    gameName: data.game?.gameName ?? '',
+    achievementCount: data.game?.availableGameStats?.achievements?.length ?? 0,
+  };
 }
 
 export function getGameIconUrl(appId: number, iconHash: string): string {

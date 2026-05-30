@@ -31,7 +31,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   if (!common.steamId) {
     return {
-      statusCode: 400,
+      statusCode: 200,
       headers: buildNoCacheHeaders(),
       body: buildErrorSvg('Missing steamid', 'The steamid parameter is required.'),
     };

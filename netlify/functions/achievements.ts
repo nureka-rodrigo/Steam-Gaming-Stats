@@ -31,7 +31,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   if (!common.steamId) {
     return {
-      statusCode: 400,
+      statusCode: 200,
       headers: buildNoCacheHeaders(),
       body: buildErrorSvg('Missing steamid', 'The steamid parameter is required.'),
     };
@@ -40,7 +40,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const appidsRaw = query['appids'];
   if (!appidsRaw) {
     return {
-      statusCode: 400,
+      statusCode: 200,
       headers: buildNoCacheHeaders(),
       body: buildErrorSvg(
         'Missing appids',
@@ -64,14 +64,15 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
     const results = await Promise.all(
       appIds.map(async (appId) => {
-        const [achievements, totalCount] = await Promise.all([
+        const [achievements, schema] = await Promise.all([
           getPlayerAchievements(steamId, appId).catch(() => null),
-          getSchemaForGame(appId).catch(() => 0),
+          getSchemaForGame(appId).catch(() => ({ gameName: '', achievementCount: 0 })),
         ]);
         const earned = achievements?.filter((a) => a.achieved === 1).length ?? 0;
-        const total = totalCount || achievements?.length || 0;
+        const total = schema.achievementCount || achievements?.length || 0;
         const percent = total > 0 ? Math.round((earned / total) * 100) : 0;
-        return { appId, earned, total, percent };
+        const gameName = schema.gameName || `App ${appId}`;
+        return { appId, earned, total, percent, gameName };
       }),
     );
 
@@ -84,7 +85,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       .map((r, i) => {
         const y = HEADER_HEIGHT + CARD_PADDING + i * ROW_H;
         const cy = y + ROW_H / 2;
-        const label = `App ${r.appId}`;
+        const label = r.gameName;
         const displayName = truncateText(
           label,
           contentWidth - (showRatio ? 80 : 0),

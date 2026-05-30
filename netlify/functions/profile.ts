@@ -23,15 +23,28 @@ import { escapeXml } from '../../src/utils/escape';
 const CARD_HEIGHT = 145;
 const AVATAR_SIZE = 60;
 const STATUS_COLORS: Record<number, string> = {
-  0: 'gray',
+  0: '8b949e',
   1: '57cbde',
-  6: '90ee90',
+  2: '57cbde',
+  3: '57cbde',
+  4: '57cbde',
+  5: '57cbde',
+  6: '57cbde',
+};
+
+const PERSONA_STATE_LABELS: Record<number, string> = {
+  0: 'Offline',
+  1: 'Online',
+  2: 'Busy',
+  3: 'Away',
+  4: 'Snooze',
+  5: 'Looking to Trade',
+  6: 'Looking to Play',
 };
 
 function personaStateLabel(state: number, inGame?: string): string {
   if (inGame) return `In-Game: ${inGame}`;
-  if (state === 1) return 'Online';
-  return 'Offline';
+  return PERSONA_STATE_LABELS[state] ?? 'Offline';
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
@@ -40,7 +53,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   if (!common.steamId) {
     return {
-      statusCode: 400,
+      statusCode: 200,
       headers: buildNoCacheHeaders(),
       body: buildErrorSvg('Missing steamid', 'The steamid parameter is required.'),
     };
