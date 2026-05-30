@@ -1,6 +1,7 @@
 # Steam Gaming Stats
 
-> Embeddable, auto-updating SVG cards for your Steam profile — drop a URL into any GitHub README and get live stats with no JavaScript, no iframes, and no GitHub Actions required.
+> Embeddable, auto-updating SVG cards for your Steam profile — drop a URL into any GitHub README and get live stats with
+> no JavaScript, no iframes, and no GitHub Actions required.
 
 ---
 
@@ -9,12 +10,15 @@
 Paste a URL into your Markdown file. GitHub fetches it, receives a valid SVG, and renders it inline.
 
 ```md
-![Recently Played](https://your-app.netlify.app/api/recently-played?steamid=YOUR_STEAM_ID)
+![Recently Played](https://steam-gaming-stats.netlify.app/api/recently-played?steamid=YOUR_STEAM_ID)
 ```
 
-Replace `YOUR_STEAM_ID` with your **SteamID64** (e.g. `76561198890357762`) or your **vanity URL username** (e.g. `gaben`).
+Replace `YOUR_STEAM_ID` with your **SteamID64** (e.g. `76561198890357762`) or your **vanity URL username** (e.g.
+`gaben`).
 
-> **Finding your SteamID64:** Open your Steam profile in a browser. The URL will look like `steamcommunity.com/id/gaben` (vanity) or `steamcommunity.com/profiles/76561198890357762` (SteamID64). You can also use [steamid.io](https://steamid.io) to look it up.
+> **Finding your SteamID64:** Open your Steam profile in a browser. The URL will look like
+> `steamcommunity.com/id/gaben` (vanity) or `steamcommunity.com/profiles/76561198890357762` (SteamID64). You can also
+> use [steamid.io](https://steamid.io) to look it up.
 
 ---
 
@@ -25,7 +29,7 @@ Replace `YOUR_STEAM_ID` with your **SteamID64** (e.g. `76561198890357762`) or yo
 Games you've played in the last two weeks with relative playtime bars.
 
 ```md
-![Recently Played](https://your-app.netlify.app/api/recently-played?steamid=YOUR_ID&theme=dark)
+![Recently Played](https://steam-gaming-stats.netlify.app/api/recently-played?steamid=YOUR_ID&theme=dark)
 ```
 
 ### Top Games
@@ -33,7 +37,7 @@ Games you've played in the last two weeks with relative playtime bars.
 Your all-time top games ranked by total hours.
 
 ```md
-![Top Games](https://your-app.netlify.app/api/top-games?steamid=YOUR_ID&theme=tokyonight&count=5)
+![Top Games](https://steam-gaming-stats.netlify.app/api/top-games?steamid=YOUR_ID&theme=tokyonight&count=5)
 ```
 
 ### Library Overview
@@ -41,7 +45,7 @@ Your all-time top games ranked by total hours.
 Total games owned, games played, total hours, and top game.
 
 ```md
-![Library](https://your-app.netlify.app/api/library?steamid=YOUR_ID&theme=dracula)
+![Library](https://steam-gaming-stats.netlify.app/api/library?steamid=YOUR_ID&theme=dracula)
 ```
 
 ### Achievement Showcase
@@ -49,7 +53,7 @@ Total games owned, games played, total hours, and top game.
 Completion percentage for up to five games of your choice.
 
 ```md
-![Achievements](https://your-app.netlify.app/api/achievements?steamid=YOUR_ID&appids=730,570)
+![Achievements](https://steam-gaming-stats.netlify.app/api/achievements?steamid=YOUR_ID&appids=730,570)
 ```
 
 Use the App ID from a game's Steam store page URL, e.g. `store.steampowered.com/app/730/` → `730`.
@@ -59,7 +63,7 @@ Use the App ID from a game's Steam store page URL, e.g. `store.steampowered.com/
 Avatar, online status, total hours, and recently played game.
 
 ```md
-![Profile](https://your-app.netlify.app/api/profile?steamid=YOUR_ID&theme=steam)
+![Profile](https://steam-gaming-stats.netlify.app/api/profile?steamid=YOUR_ID&theme=steam)
 ```
 
 ### Recent Activity
@@ -67,7 +71,7 @@ Avatar, online status, total hours, and recently played game.
 Bar chart of per-game playtime over the last two weeks.
 
 ```md
-![Recent Activity](https://your-app.netlify.app/api/heatmap?steamid=YOUR_ID&theme=gruvbox)
+![Recent Activity](https://steam-gaming-stats.netlify.app/api/heatmap?steamid=YOUR_ID&theme=gruvbox)
 ```
 
 ### Playtime Milestone
@@ -75,7 +79,7 @@ Bar chart of per-game playtime over the last two weeks.
 Total hours with fun milestone labels.
 
 ```md
-![Milestone](https://your-app.netlify.app/api/milestone?steamid=YOUR_ID&theme=synthwave)
+![Milestone](https://steam-gaming-stats.netlify.app/api/milestone?steamid=YOUR_ID&theme=synthwave)
 ```
 
 ---
@@ -87,7 +91,7 @@ Total hours with fun milestone labels.
 Every card accepts these parameters.
 
 | Parameter       | Default      | Description                                    |
-| --------------- | ------------ | ---------------------------------------------- |
+|-----------------|--------------|------------------------------------------------|
 | `steamid`       | **required** | SteamID64 (`76561198…`) or vanity URL username |
 | `theme`         | `default`    | Color theme name (see [Themes](#themes))       |
 | `hide_border`   | `false`      | Remove the card border                         |
@@ -106,7 +110,7 @@ Boolean parameters accept `true`/`false`, `1`/`0`, `yes`/`no` (case-insensitive)
 ### Card-Specific
 
 | Card            | Parameter                | Default      | Description                                |
-| --------------- | ------------------------ | ------------ | ------------------------------------------ |
+|-----------------|--------------------------|--------------|--------------------------------------------|
 | recently-played | `count`                  | `5`          | Number of games to show (1–5)              |
 | recently-played | `show_playtime`          | `true`       | Show playtime label next to each bar       |
 | recently-played | `show_icons`             | `true`       | Show game icons                            |
@@ -130,7 +134,7 @@ Boolean parameters accept `true`/`false`, `1`/`0`, `yes`/`no` (case-insensitive)
 Append `&theme=NAME` to any card URL.
 
 | Name           | Preview                             |
-| -------------- | ----------------------------------- |
+|----------------|-------------------------------------|
 | `default`      | White background, blue accents      |
 | `dark`         | GitHub dark mode (#0d1117)          |
 | `radical`      | Deep pink on dark purple            |
@@ -147,7 +151,7 @@ Append `&theme=NAME` to any card URL.
 Individual color overrides take precedence over the theme:
 
 ```md
-![Card](https://your-app.netlify.app/api/recently-played?steamid=YOUR_ID&theme=dark&title_color=ff6e96)
+![Card](https://steam-gaming-stats.netlify.app/api/recently-played?steamid=YOUR_ID&theme=dark&title_color=ff6e96)
 ```
 
 ---
