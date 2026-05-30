@@ -1,18 +1,22 @@
 {
   "name": "steam-gaming-stats",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Serverless SVG card generator for Steam profiles — embeddable in GitHub READMEs",
+  "main": "dist/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"src/**/*.{ts,js,json}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,js,json}\""
+    "build": "tsc",
+    "dev": "netlify dev",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/**/*.test.js",
+    "format": "prettier --write \"src/**/*.{ts,js,json}\" \"netlify/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json}\" \"netlify/**/*.ts\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["steam", "svg", "github-readme", "netlify", "serverless"],
+  "author": "Nureka Rodrigo",
   "license": "ISC",
   "packageManager": "pnpm@11.5.0",
   "devDependencies": {
+    "@netlify/functions": "^5.2.2",
     "@types/node": "^25.9.1",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3"

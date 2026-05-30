@@ -1,0 +1,24 @@
+[build]
+  command = "pnpm run build"
+  publish = "public"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; img-src 'self' https://media.steampowered.com https://cdn.cloudflare.steamstatic.com https://avatars.steamstatic.com data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'"

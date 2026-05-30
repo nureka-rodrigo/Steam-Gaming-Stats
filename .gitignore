@@ -111,6 +111,9 @@ dist
 # Serverless directories
 .serverless/
 
+# Netlify CLI cache
+.netlify/
+
 # FuseBox cache
 .fusebox/
 
