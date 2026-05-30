@@ -1,4 +1,4 @@
-# Steam Gaming Stats
+# Steam Readme Stats
 
 > Embeddable, auto-updating SVG cards for your Steam profile — drop a URL into any GitHub README and get live stats with
 > no JavaScript, no iframes, and no GitHub Actions required.
