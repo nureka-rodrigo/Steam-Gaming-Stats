@@ -1,5 +1,7 @@
 # Steam Readme Stats
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/245272b3-14e1-41af-9784-40964fd8e4db/deploy-status)](https://app.netlify.com/projects/steam-readme-stats/deploys)
+
 > Embeddable, auto-updating SVG cards for your Steam profile — drop a URL into any GitHub README and get live stats with
 > no JavaScript, no iframes, and no GitHub Actions required.
 
