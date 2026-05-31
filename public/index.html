@@ -164,6 +164,7 @@
                     id="card-type"
                     class="appearance-none bg-canvas-overlay border border-canvas-inset rounded-lg text-fg text-sm px-4 py-3 pr-10 w-full outline-none hover:border-fg-muted focus:border-fg-accent focus:ring-2 focus:ring-fg-accent/20 cursor-pointer transition-all duration-200"
                   >
+                    <option value="overview">Steam Overview</option>
                     <option value="recently-played">Recently Played</option>
                     <option value="top-games">Top Games</option>
                     <option value="library">Library Overview</option>
@@ -346,7 +347,7 @@
                 Live Preview
               </span>
               <span id="preview-card-name" class="text-[13px] font-semibold text-fg"
-                >Recently Played</span
+                >Steam Overview</span
               >
             </div>
             <div
@@ -1067,6 +1068,7 @@
       let loadSeq = 0;
 
       const CARD_LABELS = {
+        overview: 'Steam Overview',
         'recently-played': 'Recently Played',
         'top-games': 'Top Games',
         library: 'Library Overview',
